@@ -1,0 +1,29 @@
+source $HOME/.dotfiles/zsh/aliases.sh
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/dhanushu/.oh-my-zsh"
+
+PATH="/usr/local/bin:$PATH"
+
+ZSH_THEME="cobalt2"
+
+DISABLE_AUTO_UPDATE="true"
+
+# Allow opening a bunch of files
+ulimit -n 1024
+
+export EDITOR=vim
+
+source $ZSH/oh-my-zsh.sh
+
+plugins=(
+    git
+    fzf
+)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
