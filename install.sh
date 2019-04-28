@@ -1,9 +1,3 @@
-set -e
-
-# Change shell to zsh
-chsh -s $(which zsh)
-
-
 #Symlink .zshrc and .vimrc
 ln -s $HOME/.dotfiles/vim/vimrc $HOME/.vimrc
 mkdir $HOME/.vim/

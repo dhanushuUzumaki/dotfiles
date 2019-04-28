@@ -69,9 +69,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'yegappan/mru'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 
-Plug 'Shougo/neocomplete.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
@@ -82,6 +80,7 @@ Plug 'victormours/better-writing.vim'
 Plug 'janko-m/vim-test'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'w0rp/ale'
+Plug 'vim-airline/vim-airline'
 
 " Search
 Plug 'henrik/vim-indexed-search'
@@ -122,7 +121,7 @@ syntax enable
 
 " Solarized theme
 let g:solarized_termtrans = 1
-set background=light
+set background=dark
 colorscheme solarized
 
 if has("gui_running")
@@ -132,7 +131,6 @@ end
 
 source ~/.dotfiles/vim/splits.vim
 source ~/.dotfiles/vim/tabs.vim
-source ~/.dotfiles/vim/font.vim
 source ~/.dotfiles/vim/javascript.vim
 
 " Better search
@@ -171,20 +169,11 @@ set scrolloff=5 " Keep 5 lines below and above the cursor
 
 set cursorline
 
-function! GetBranchName(_) abort
-  let b:branch_name = systemlist("git rev-parse --abbrev-ref HEAD 2> /dev/null || echo ''")[0]
-endfunction
-call timer_start(1000, function('GetBranchName'), {'repeat': -1})
-
-autocmd BufEnter,BufWritePost * call GetBranchName("")
 
 set laststatus=2
 set statusline=%f " tail of the filename
 set statusline+=\ c:%c " column number
 set statusline+=%= " switching to right side
-set statusline+=%(%{b:branch_name}%)
-
-
 
 command FormatJSON %!python -m json.tool
 

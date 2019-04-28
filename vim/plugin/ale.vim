@@ -5,4 +5,4 @@ let g:ale_lint_on_save = 1
 
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '']
 set statusline+=%=
-set statusline+=\ %{ALEGetStatusLine()}
+let g:airline#extensions#ale#enabled = 1
